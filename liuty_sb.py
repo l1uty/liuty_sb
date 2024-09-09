@@ -68,7 +68,6 @@ def jolokiavuln(url):
             savemessage("[success]检测到开启了 jolokia(createJNDIRealm) 可尝试进行JNDI注入RCE测试,路径为：{}".format(url_tar))
 
 
-#Spring Boot env端点存在环境属性覆盖和XStream反序列化漏洞
 def env_vuln(url):
     url_tar = url + '/env'
     r = requests.get(url_tar, headers=headers, verify=False)
@@ -82,7 +81,6 @@ def env_vuln(url):
             print("[success]检测到开启了 env(eureka.client.serviceUrl.defaultZone) 可尝试进行XStream反序列化RCE测试,路径为：{}".format(url_tar))
             savemessage("[success]检测到开启了 env(eureka.client.serviceUrl.defaultZone) 可尝试进行XStream反序列化RCE测试,路径为：{}".format(url_tar))
 
-#Spring Boot 1.x版本端点在根URL下注册。
 def actuator_vuln(url):
     key=0
     env_vuln(url)
